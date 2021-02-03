@@ -33,12 +33,12 @@ public class NoteServlet extends HttpServlet {
         String title = br.readLine();
         String contents = br.readLine();
         br.close();
-        request.setAttribute("title", title); 
+        request.setAttribute("title", title);
         request.setAttribute("contents", contents);
 
         Note note = new Note(title, contents);
         request.setAttribute("note", note);
-        
+
         String edit = request.getParameter("edit");
         if (edit == null) {
             edit = null;
@@ -49,7 +49,7 @@ public class NoteServlet extends HttpServlet {
             getServletContext().getRequestDispatcher("/WEB-INF/editnote.jsp")
                     .forward(request, response);
         }
-        
+
     }
 
     @Override
@@ -58,7 +58,7 @@ public class NoteServlet extends HttpServlet {
         //get information form jsp
         String title = request.getParameter("title");
         String contents = request.getParameter("contents");
-        
+
         request.setAttribute("title", title);
         request.setAttribute("contents", contents);
 
@@ -68,6 +68,7 @@ public class NoteServlet extends HttpServlet {
         pw.println(title);
         pw.println(contents);
         pw.close();
+        //the text file goes to the build/web/web-inf
         
         getServletContext().getRequestDispatcher("/WEB-INF/viewnote.jsp")
                 .forward(request, response);
