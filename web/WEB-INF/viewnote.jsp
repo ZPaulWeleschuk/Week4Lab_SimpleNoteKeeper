@@ -14,13 +14,15 @@
     <body>
         <h1>Simple Note Keeper</h1>
         <h2>View Note</h2>
-        <p>Title: ${title}</p>
-
+        <p>Title:(from javabean) ${note.title}</p>
+            <p>Title:(from param) ${title}</p>
 
         <p>Contents:</p>
 
-        <p>${contents}</p>
+        <p>(from javabean)${note.contents}</p>
         
+         <p>Contents:</p>
+        <p>(from param${contents}</p>
         <a href="note?edit">Edit</a> <!--passing 'edit' to servlet-->
     </body>
 </html>
