@@ -61,14 +61,14 @@ public class NoteServlet extends HttpServlet {
         
         request.setAttribute("title", title);
         request.setAttribute("contents", contents);
-        
-        //note.setTitle(title);
-        //note.setContents(contents);
 
-        //String path = getServletContext().getRealPath("/WEB-INF/note.txt");
+        String path = getServletContext().getRealPath("/WEB-INF/note.txt");
         // to write to a file
-        //PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(path, false)));
-
+        PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(path, false)));
+        pw.println(title);
+        pw.println(contents);
+        pw.close();
+        
         getServletContext().getRequestDispatcher("/WEB-INF/viewnote.jsp")
                 .forward(request, response);
     }
